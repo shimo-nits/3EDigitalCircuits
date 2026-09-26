@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SimcirJS JKFFsync</title>
 
 <script src="simcir.js"></script>
@@ -64,12 +65,13 @@ simcir.registerDevice('SRFF',
 </head>
 
 <body>
-JKフリップフロップ
+JKフリップフロップ<br>
+<div style="overflow-x:auto;">
 <div class="simcir">
 {
-  "width":640,
-  "height":480,
-  "showToolbox":true,
+  "width":480,
+  "height":360,
+  "showToolbox":false,
   "toolbox":[
     {"type":"Joint"},
     {"type":"DC"},

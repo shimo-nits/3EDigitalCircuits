@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SimcirJS FF</title>
 
 <script src="simcir.js"></script>
@@ -14,11 +15,12 @@
 
 <body>
 フリップフロップの原理<br>
+<div style="overflow-x:auto;">
 <div class="simcir">
 {
-  "width":640,
-  "height":480,
-  "showToolbox":true,
+  "width":480,
+  "height":360,
+  "showToolbox":false,
   "toolbox":[
     {"type":"Joint"},
     {"type":"DC"},
@@ -30,14 +32,14 @@
     {"type":"NOR"}
   ],
   "devices":[
-    {"type":"NOT","id":"dev0","x":328,"y":216,"label":"NOT"},
-    {"type":"LED","id":"dev1","x":464,"y":216,"label":"Q"},
-    {"type":"DC","id":"dev2","x":120,"y":224,"label":"DC"},
-    {"type":"NOR","id":"dev3","x":256,"y":216,"label":"NOR"},
-    {"type":"LED","id":"dev4","x":216,"y":280,"label":"I"},
-    {"type":"Toggle","id":"dev5","x":176,"y":224,"label":"Toggle","state":{"on":false}},
-    {"type":"LED","id":"dev6","x":328,"y":280,"label":"LED"},
-    {"type":"Joint","id":"dev7","x":296,"y":184,"label":"Joint","state":{"direction":0}}
+    {"type":"NOT","id":"dev0","x":232,"y":40,"label":"NOT"},
+    {"type":"LED","id":"dev1","x":368,"y":40,"label":"Q"},
+    {"type":"DC","id":"dev2","x":24,"y":48,"label":"DC"},
+    {"type":"NOR","id":"dev3","x":160,"y":40,"label":"NOR"},
+    {"type":"LED","id":"dev4","x":120,"y":104,"label":"I"},
+    {"type":"Toggle","id":"dev5","x":80,"y":48,"label":"Toggle","state":{"on":false}},
+    {"type":"LED","id":"dev6","x":232,"y":104,"label":"LED"},
+    {"type":"Joint","id":"dev7","x":200,"y":8,"label":"Joint","state":{"direction":0}}
   ],
   "connectors":[
     {"from":"dev0.in0","to":"dev3.out0"},
@@ -50,6 +52,7 @@
     {"from":"dev7.in0","to":"dev0.out0"}
   ]
 }</div>
+</div>
 動作確認手順<br>
 
 1)Toggleを押して入力 I を1にします。すると出力 Q が1になります。<br>

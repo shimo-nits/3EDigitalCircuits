@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SimcirJS SRFFsync</title>
 
 <script src="simcir.js"></script>
@@ -64,12 +65,13 @@ simcir.registerDevice('SRFF',
 </head>
 
 <body>
-同期型SRフリップフロップ
+同期型SRフリップフロップ<br>
+<div style="overflow-x:auto;">
 <div class="simcir">
 {
-  "width":640,
-  "height":480,
-  "showToolbox":true,
+  "width":480,
+  "height":360,
+  "showToolbox":false,
   "toolbox":[
     {"type":"DC"},
     {"type":"LED"},
@@ -113,7 +115,7 @@ simcir.registerDevice('SRFF',
     {"from":"dev11.in1","to":"dev0.out0"},
     {"from":"dev12.in0","to":"dev8.out0"}
   ]
-}</div>
+}</div></div>
 動作確認手順<br>
 1)SのToggleを押して S=1 にしても、Qは変化しません。<br>
 2)CKを押すと、Q=1、~Q=0 になります（セット）。<br>

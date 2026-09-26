@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SimcirJS SRFF</title>
 
 <script src="simcir.js"></script>
@@ -14,11 +15,12 @@
 
 <body>
 SRフリップフロップ<br>
+<div style="overflow-x:auto;">
 <div class="simcir">
 {
-  "width":640,
-  "height":480,
-  "showToolbox":true,
+  "width":480,
+  "height":360,
+  "showToolbox":false,
   "toolbox":[
     {"type":"Joint"},
     {"type":"DC"},
@@ -64,7 +66,7 @@ SRフリップフロップ<br>
     {"from":"dev12.in0","to":"dev1.out0"},
     {"from":"dev13.in0","to":"dev14.out0"}
   ]
-}</div>
+}</div></div>
 動作確認手順<br>
 1)SのToggleを押して S=1 にすると、Q=1、~Q=0 になります（セット）。<br>
 2) Sを0に戻しても、Q=1、~Q=0 の状態が保持されます。<br>
