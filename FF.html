@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>SimcirJS FF</title>
+
+<script src="simcir.js"></script>
+<link rel="stylesheet" href="simcir.css">
+
+<script src="simcir-basicset.js"></script>
+<link rel="stylesheet" href="simcir-basicset.css">
+
+</head>
+
+<body>
+フリップフロップの原理<br>
+<div class="simcir">
+{
+  "width":640,
+  "height":480,
+  "showToolbox":true,
+  "toolbox":[
+    {"type":"Joint"},
+    {"type":"DC"},
+    {"type":"LED"},
+    {"type":"Toggle"},
+    {"type":"AND"},
+    {"type":"OR"},
+    {"type":"NOT"},
+    {"type":"NOR"}
+  ],
+  "devices":[
+    {"type":"NOT","id":"dev0","x":328,"y":216,"label":"NOT"},
+    {"type":"LED","id":"dev1","x":464,"y":216,"label":"Q"},
+    {"type":"DC","id":"dev2","x":120,"y":224,"label":"DC"},
+    {"type":"NOR","id":"dev3","x":256,"y":216,"label":"NOR"},
+    {"type":"LED","id":"dev4","x":216,"y":280,"label":"I"},
+    {"type":"Toggle","id":"dev5","x":176,"y":224,"label":"Toggle","state":{"on":false}},
+    {"type":"LED","id":"dev6","x":328,"y":280,"label":"LED"},
+    {"type":"Joint","id":"dev7","x":296,"y":184,"label":"Joint","state":{"direction":0}}
+  ],
+  "connectors":[
+    {"from":"dev0.in0","to":"dev3.out0"},
+    {"from":"dev1.in0","to":"dev0.out0"},
+    {"from":"dev3.in0","to":"dev7.out0"},
+    {"from":"dev3.in1","to":"dev5.out0"},
+    {"from":"dev4.in0","to":"dev5.out0"},
+    {"from":"dev5.in0","to":"dev2.out0"},
+    {"from":"dev6.in0","to":"dev3.out0"},
+    {"from":"dev7.in0","to":"dev0.out0"}
+  ]
+}</div>
+動作確認手順<br>
+
+1)Toggleを押して入力 I を1にします。すると出力 Q が1になります。<br>
+2)Toggleをもう一度押して入力 I を0に戻します。入力が0になっても、Qは1のまま保持されます。<br>
+3)NORゲート上部の黄色い端子をクリックして、フィードバック配線を切断します。すると Q は0になります。<br>
+4)フィードバック配線を再接続すると、再びフリップフロップとして動作を確認できます。<br>
+この実験から、フリップフロップが値を記憶できる理由は、出力 Q が入力側へ戻される「フィードバック」にあることが分かります。<br>
+※ 一度 Q=1 になると、フィードバック配線を切らない限り Q は保持されます。
+</body>
+</html>

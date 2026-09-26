@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>SimcirJS SRFF</title>
+
+<script src="simcir.js"></script>
+<link rel="stylesheet" href="simcir.css">
+
+<script src="simcir-basicset.js"></script>
+<link rel="stylesheet" href="simcir-basicset.css">
+
+</head>
+
+<body>
+SRフリップフロップ<br>
+<div class="simcir">
+{
+  "width":640,
+  "height":480,
+  "showToolbox":true,
+  "toolbox":[
+    {"type":"Joint"},
+    {"type":"DC"},
+    {"type":"LED"},
+    {"type":"Toggle"},
+    {"type":"AND"},
+    {"type":"OR"},
+    {"type":"NOT"},
+    {"type":"NOR"}
+  ],
+  "devices":[
+    {"type":"Toggle","id":"dev0","x":80,"y":232,"label":"Toggle","state":{"on":false}},
+    {"type":"NOT","id":"dev1","x":152,"y":192,"label":"NOT"},
+    {"type":"OR","id":"dev2","x":232,"y":200,"label":"OR"},
+    {"type":"OR","id":"dev3","x":232,"y":72,"label":"OR"},
+    {"type":"NOT","id":"dev4","x":152,"y":80,"label":"NOT"},
+    {"type":"Joint","id":"dev5","x":240,"y":144,"label":"Joint","state":{"direction":0}},
+    {"type":"Joint","id":"dev6","x":160,"y":144,"label":"Joint","state":{"direction":0}},
+    {"type":"LED","id":"dev7","x":360,"y":200,"label":"~Q"},
+    {"type":"LED","id":"dev8","x":360,"y":72,"label":"Q"},
+    {"type":"LED","id":"dev9","x":112,"y":16,"label":"S"},
+    {"type":"LED","id":"dev10","x":112,"y":280,"label":"R"},
+    {"type":"LED","id":"dev11","x":232,"y":16,"label":"LED"},
+    {"type":"LED","id":"dev12","x":232,"y":264,"label":"LED"},
+    {"type":"Toggle","id":"dev13","x":80,"y":56,"label":"Toggle","state":{"on":false}},
+    {"type":"DC","id":"dev14","x":24,"y":144,"label":"DC"}
+  ],
+  "connectors":[
+    {"from":"dev0.in0","to":"dev14.out0"},
+    {"from":"dev1.in0","to":"dev6.out0"},
+    {"from":"dev2.in0","to":"dev1.out0"},
+    {"from":"dev2.in1","to":"dev0.out0"},
+    {"from":"dev3.in0","to":"dev13.out0"},
+    {"from":"dev3.in1","to":"dev4.out0"},
+    {"from":"dev4.in0","to":"dev5.out0"},
+    {"from":"dev5.in0","to":"dev2.out0"},
+    {"from":"dev6.in0","to":"dev3.out0"},
+    {"from":"dev7.in0","to":"dev2.out0"},
+    {"from":"dev8.in0","to":"dev3.out0"},
+    {"from":"dev9.in0","to":"dev13.out0"},
+    {"from":"dev10.in0","to":"dev0.out0"},
+    {"from":"dev11.in0","to":"dev4.out0"},
+    {"from":"dev12.in0","to":"dev1.out0"},
+    {"from":"dev13.in0","to":"dev14.out0"}
+  ]
+}</div>
+動作確認手順<br>
+1)SのToggleを押して S=1 にすると、Q=1、~Q=0 になります（セット）。<br>
+2) Sを0に戻しても、Q=1、~Q=0 の状態が保持されます。<br>
+3)RのToggleを押して R=1 にすると、Q=0、~Q=1 になります（リセット）。<br>
+4)Rを0に戻しても、Q=0、~Q=1 の状態が保持されます。<br>
+5)このことから、SRフリップフロップは入力された値を記憶できることが分かります。
+</body>
+</html>
